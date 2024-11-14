@@ -14,4 +14,8 @@ class User {
       required this.nat,
       required this.cell,
       required this.name});
+
+  String get fullName {
+    return '${name.title} ${name.first} ${name.last}';
+  }
 }
