@@ -34,28 +34,9 @@ class User {
 
     final dob = UserDob(date: DateTime.parse(date), age: user['dob']['age']);
 
-    final coordinates = LocationCoordinates(
-        latitude: user['location']['coordinates']['latitude'],
-        longitude: user['location']['coordinates']['longitude']);
-
-    final timezone = LocationTimezoneCoordinate(
-        offset: user['location']['timezone']['offset'],
-        description: user['location']['timezone']['description']);
-
-    final street = LocationStreet(
-        number: user['location']['street']['number'],
-        name: user['location']['street']['name']);
-
-    final location = UserLocation(
-        city: user['location']['city'],
-        state: user['location']['state'],
-        country: user['location']['country'],
-        postCode: user['location']['postCode'].toString(),
-        coordinates: coordinates,
-        timezone: timezone,
-        street: street);
-
     final picture = UserPicture.fromMap(user['picture']);
+
+    final location = UserLocation.fromMap(user['location']);
 
     return User(
         cell: user['cell'],
