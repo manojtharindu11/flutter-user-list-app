@@ -1,5 +1,5 @@
 import 'package:hello_world_flutter/model/user_dob.dart';
-import 'package:hello_world_flutter/model/user_location.dart';
+import 'package:hello_world_flutter/model/user_location/user_location.dart';
 import 'package:hello_world_flutter/model/user_name.dart';
 import 'package:hello_world_flutter/model/user_picture.dart';
 
@@ -25,7 +25,7 @@ class User {
       required this.picture});
 
   factory User.fromMap(Map<String, dynamic> user) {
-    
+
     final name = UserName.fromMap(user['name']);
     final dob = UserDob.fromMap(user['dob']);
     final picture = UserPicture.fromMap(user['picture']);

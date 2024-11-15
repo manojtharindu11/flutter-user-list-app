@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:hello_world_flutter/model/user_dob.dart';
-import 'package:hello_world_flutter/model/user_location.dart';
+import 'package:hello_world_flutter/model/user_location/user_location.dart';
 import 'package:http/http.dart' as http;
 import 'package:hello_world_flutter/model/user.dart';
 import 'package:hello_world_flutter/model/user_name.dart';
