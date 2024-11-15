@@ -23,15 +23,19 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("REST API CALL")),
+      appBar: AppBar(title: const Text("Users List")),
       body: ListView.builder(
           itemCount: users.length,
           itemBuilder: (context, index) {
             final user = users[index];
             // final color = user.gender == 'male' ? Colors.blue : Colors.pink;
             return ListTile(
+              leading: CircleAvatar(
+                radius: 30, // Adjust the size of the thumbnail
+                backgroundImage: NetworkImage(user.picture.thumbnail),
+              ),
               title: Text(user.fullName),
-              subtitle: Text(user.phone),
+              subtitle: Text(user.email),
               // tileColor: color,
             );
           }),
