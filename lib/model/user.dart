@@ -30,9 +30,7 @@ class User {
         first: user['name']['first'],
         last: user['name']['last']);
 
-    final date = user['dob']['date'];
-
-    final dob = UserDob(date: DateTime.parse(date), age: user['dob']['age']);
+    final dob = UserDob.fromMap(user['dob']);
 
     final picture = UserPicture.fromMap(user['picture']);
 
