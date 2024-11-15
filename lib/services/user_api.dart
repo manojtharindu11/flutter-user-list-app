@@ -1,6 +1,6 @@
 import 'dart:convert';
-
 import 'package:hello_world_flutter/model/user_dob.dart';
+import 'package:hello_world_flutter/model/user_location.dart';
 import 'package:http/http.dart' as http;
 import 'package:hello_world_flutter/model/user.dart';
 import 'package:hello_world_flutter/model/user_name.dart';
@@ -25,6 +25,27 @@ class UserApi {
 
       final dob = UserDob(date: DateTime.parse(date), age: user['dob']['age']);
 
+      final coordinates = LocationCoordinates(
+          latitude: user['location']['coordinates']['latitude'],
+          longitude: user['location']['coordinates']['longitude']);
+
+      final timezone = LocationTimezoneCoordinate(
+          offset: user['location']['timezone']['offset'],
+          description: user['location']['timezone']['description']);
+
+      final street = LocationStreet(
+          number: user['location']['street']['number'],
+          name: user['location']['street']['name']);
+
+      final location = UserLocation(
+          city: user['location']['city'],
+          state: user['location']['state'],
+          country: user['location']['country'],
+          postCode: user['location']['postCode'].toString(),
+          coordinates: coordinates,
+          timezone: timezone,
+          street: street);
+
       return User(
           cell: user['cell'],
           email: user['email'],
@@ -32,7 +53,8 @@ class UserApi {
           gender: user['gender'],
           name: name,
           nat: user['nat'],
-          dob: dob);
+          dob: dob,
+          location: location);
     }).toList();
 
     print("fetchedUsers completed.");

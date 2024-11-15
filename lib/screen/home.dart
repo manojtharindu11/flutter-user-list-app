@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:hello_world_flutter/model/user.dart';
 import 'package:hello_world_flutter/services/user_api.dart';
